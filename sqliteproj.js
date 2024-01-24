@@ -1,11 +1,13 @@
 let mysql=require('sqlite3');
 let {open}=require('sqlite');
+let cros=require('cors')
 let exp=require('express');
 let app=exp()
 app.use(exp.json())
 let path=require('path');
 let db=path.join(__dirname,"sqlie.db");
 let kdb=null
+app.use(cros())
 let server=async()=>{
     try{
        kdb= await open({
